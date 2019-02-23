@@ -22,7 +22,6 @@ public class Exercicio_05 {
             System.out.println("Nro: " + i);
         }
         System.out.println("\n");
-
     }
 
 }
