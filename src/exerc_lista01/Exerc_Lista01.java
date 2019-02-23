@@ -13,24 +13,24 @@ public class Exerc_Lista01 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        //Menu de Opções
+        
         int opcao = 0;
 
         do {
-            //Menu com todos os CASE para opcao1 do Usuário
+            //Menu com todos os CASE para opcão do Usuário
             opcao = Integer.parseInt(JOptionPane.showInputDialog(" Escolha uma opção: \n"
                     + "01 \t02 \t03 \t04 \t05 \t06 \t07 \t08 \t09 \t10 \n"
                     + "11 \t12 \t13 \t14 \t15 \t16 \t17 \t18 \t19 \t20 \n"
                     + "21 \t22 \t23 \t24 \t25 \t26 \t27 \t28 \t29 \t30 \n"
-                    + "\nUse 99 para sair do Programa"));
+                    + "\nUse 99 para sair \n"));
 
             switch (opcao) {
 
                 //Opção para sair do Programa
                 case 99:
-                    System.out.println("Programa Finalizado com sucesso!!");
-                    System.out.println("\n");
+
+                    System.out.println("Programa Finalizado com sucesso!!\n");
+
                     break;
 
                 case 1:
@@ -281,7 +281,6 @@ public class Exerc_Lista01 {
         } while (opcao != 99);
 
         System.exit(0);
-
     }
 
 }

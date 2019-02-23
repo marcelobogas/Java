@@ -20,71 +20,60 @@ public class Exercicio_26 {
     public void Executar_Programa_26() {
 
         String nome = new String();
-        String opcao1 = new String();
-        int idade = 0,
+        int idade,
                 idadeMenor = 0,
                 idadeMaior = 0,
                 idadeMedia = 0,
-                cont5 = 0;
-        opcao1 = "s";
+                //opcao = 0,
+                cont = 0;
+        String opcao = new String();
 
-        switch (opcao1) {
+        do {
 
-            case "N":
-            case "n":
+            //Armazena o nome e a idade
+            nome = JOptionPane.showInputDialog("Informe o Nome: ");
+            idade = Integer.parseInt(JOptionPane.showInputDialog("Informe a Idade: "));
 
-                System.out.println("Idade menor: " + idadeMenor + "\t\tIdade maior: " + idadeMaior
-                        + "Média de Idade: " + idadeMedia / cont5);
+            //Condição para iniciar a comparação
+            if ((idadeMenor == 0) && (idadeMaior == 0)) {
 
-                break;
+                //Preenche as duas variáveis para iniciar a comparação entre elas
+                idadeMenor = idadeMaior = idade;
+                idadeMedia += idade;
+                cont++;
 
-            case "S":
-            case "s":
+            } else {
 
-                //Armazena o nome e a idade
-                nome = JOptionPane.showInputDialog("Informe o Nome: ");
-                idade = Integer.parseInt(JOptionPane.showInputDialog("Informe a Idade: "));
+                if (idade < idadeMenor) {
 
-                //Mostra as informações digitadas
-                System.out.println("Nome: " + nome + "\tIdade: " + idade + " anos");
-
-                //Condição para iniciar a comparação
-                if ((idadeMenor == 0) && (idadeMaior == 0)) {
-
-                    //Preenche as duas variáveis para iniciar a comparação entre elas
-                    idadeMenor = idadeMaior = idade;
+                    idadeMenor = idade;
                     idadeMedia += idade;
+                    cont++;
 
-                } else {
+                } else if (idade > idadeMaior) {
 
-                    if (idade < idadeMenor) {
+                    idadeMaior = idade;
+                    idadeMedia += idade;
+                    cont++;
 
-                        idadeMenor = idade;
-                        idadeMedia += idade;
-
-                    }
-
-                    if (idade > idadeMaior) {
-
-                        idadeMaior = idade;
-                        idadeMedia += idade;
-
-                    }
                 }
-                break;
+            }
 
-            default:
+            //Mostra as informações digitadas
+            System.out.println("Nome: " + nome + "\tIdade: " + idade + " anos");
+            
+            opcao = JOptionPane.showInputDialog("Boa tarde");
 
-                System.out.println("Opção inválida!!\n"
-                        + "Use S para continuar ou N para sair do programa");
-                break;
-        }
+            //Sair do programa
+            if (opcao.equals("n") || opcao.equals("N")) {
 
-        //Opção para o usuário continuar ou sair do programa
-        opcao1 = JOptionPane.showInputDialog("Deseja continuar: ");
+                System.out.println("\nIdade menor: " + idadeMenor + "\t\tIdade maior: "
+                        + idadeMaior + "\t\tIdade média: " + idadeMedia / cont);
+                System.out.println("\nFinalizado com sucesso!!!");
 
-        System.out.println("\n");
+            }
 
+        } while (opcao.equals("s") || opcao.equals("S"));
     }
 
 }

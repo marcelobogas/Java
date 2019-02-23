@@ -19,10 +19,8 @@ public class Exercicio_15 {
 
     public void Executar_Programa_15() {
 
-        int vetor1[] = new int[10];
-
-        //variável para armazenar o maior número
-        int maior = 0;
+        int vetor1[] = new int[10],
+                maior = 0;
 
         // Laço para preencher o vetor
         for (int i = 0; i < 10; i++) {

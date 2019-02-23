@@ -21,6 +21,7 @@ public class Exercicio_29 {
 
         int opcao = 0;
         String escolha = new String();
+        String mensagem = "Deseja contunuar: ";
 
         //Laço para rodar o programa
         do {
@@ -55,23 +56,58 @@ public class Exercicio_29 {
                     num1 = Integer.parseInt(JOptionPane.showInputDialog("Digite um número: "));
 
                     //Verifica se o número é Par ou Ímpar
-                    if (num1 % 2 == 0)
+                    if (num1 % 2 == 0) {
                         str = "Par";
-                    else
+                    } else {
                         str = "Ímpar";
-                    
+                    }
+
                     System.out.println("O Nro digitado é: " + str);
 
                     break;
 
                 case 2:
 
+                    float vet[] = new float[4],
+                     soma = 0,
+                     menor = 0,
+                     maior = 0;
+                    int cont = 0;
+
+                    for (int i = 1; i < 5; i++) {
+
+                        vet[i] = Float.parseFloat(JOptionPane.showInputDialog("Digite a " + i + "ª nota: "));
+                        System.out.println("[" + i + "ª]" + " nota: " + vet[i]);
+                        soma += vet[i];
+
+                        if (menor == 0 && maior == 0) {
+                            menor = maior = vet[i];
+                            cont++;
+                        } else {
+
+                            if (vet[i] < menor) {
+                                menor = vet[i];
+                                cont++;
+                            }
+
+                            if (vet[i] > maior) {
+                                maior = vet[i];
+                                cont++;
+                            }
+
+                        }
+
+                    }
+
+                    System.out.println("Soma das notas: " + soma + "\tMédia das notas: " + soma / cont
+                            + "Menor nota: " + menor + "Maior nota: " + maior);
+
                     break;
 
                 case 3:
 
-                    System.out.println("Programa finalizado com sucesso!!");
-                    System.out.println("\n");
+                    System.out.println("Finalizado com sucesso!!!\n");
+                    System.exit(0);
 
                     break;
 
@@ -79,9 +115,16 @@ public class Exercicio_29 {
                     System.out.println("Opção inválida!!");
             }
 
-            escolha = JOptionPane.showInputDialog("Deseja continuar: ");
+            //Opção para continuar ou sair do programa
+            escolha = JOptionPane.showInputDialog(mensagem);
 
-        } while (escolha == "s");
+            if (escolha.equals("n") || escolha.equals("N")) {
+
+                System.exit(0);
+
+            }
+
+        } while (escolha.equals("s") || escolha.equals("S"));
 
         System.out.println("\n");
     }

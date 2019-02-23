@@ -24,91 +24,106 @@ public class Exercicio_28 {
                 deposito = 0,
                 saldo = 0;
         String opcao = new String();
+        String mensagem = "Deseja continuar: ";
 
-        do {
+        if (saldoInicial == 0) {
 
-            saldoInicial = Float.parseFloat("Informe o seu saldo inicial: ");
+            saldoInicial = Float.parseFloat(JOptionPane.showInputDialog("Informe o seu saldo inicial: "));
 
             if (saldoInicial < 0) {
 
                 //Não permite que o saldo inicial seja negativo
                 System.out.println("Saldo inicial não pode ser negativo!!!");
 
-            }
+            } else {
 
-            //Menu de opções com as operações para movimentar a conta
-            opcao = JOptionPane.showInputDialog("Menu de opções: \n\n"
-                    + "[A] SALDO \n"
-                    + "[B] SAQUE"
-                    + "[C] DEPÓSITO"
-                    + "[D] SAIR");
+                do {
 
-            switch (opcao) {
+                    //Menu de opções com as operações para movimentar a conta
+                    opcao = JOptionPane.showInputDialog("Menu de opções: \n\n"
+                            + "[A] SALDO \n"
+                            + "[B] SAQUE \n"
+                            + "[C] DEPÓSITO \n"
+                            + "[D] SAIR \n");
 
-                case "a":
-                case "A":
+                    switch (opcao) {
 
-                    //calcula o saldo da conta
-                    saldo = saldoInicial + deposito - saque;
-                    System.out.println("Saldo atual: " + saldo);
+                        case "a":
+                        case "A":
 
-                    break;
+                            //calcula o saldo da conta
+                            saldo = saldoInicial + deposito - saque;
+                            System.out.println("Saldo atual: " + saldo);
 
-                case "b":
-                case "B":
+                            break;
 
-                    //Informa o valor do saque
-                    saque = Float.parseFloat("Informe o valor para saque: \n\n");
+                        case "b":
+                        case "B":
 
-                    //Não permite o saque ser negativo 
-                    if (saque < 0) {
-                        System.out.println("Saque não pode ser Negativo");
+                            //Informa o valor do saque
+                            saque = Float.parseFloat(JOptionPane.showInputDialog("Informe o valor para saque: \n"));
+
+                            //Não permite o saque ser negativo 
+                            if (saque < 0) {
+                                System.out.println("Valor não pode ser Negativo!!!");
+                            }
+
+                            //decrementa o valor da conta
+                            saldo -= saque;
+
+                            System.out.println("Saldo atual: " + saldo);
+
+                            break;
+
+                        case "c":
+                        case "C":
+
+                            //Informa o valor do depósito
+                            deposito = Float.parseFloat(JOptionPane.showInputDialog("Informe o valor para depósito: \n"));
+
+                            //Não permite o depósito ser negativo 
+                            if (deposito < 0) {
+                                System.out.println("Valor não pode ser Negativo!!!");
+                            }
+
+                            //decrementa o valor da conta
+                            saldo += deposito;
+
+                            System.out.println("Saldo atual: " + saldo);
+
+                            break;
+
+                        case "d":
+                        case "D":
+
+                            System.exit(0);
+
+                            break;
+
+                        default:
+
+                            System.out.println("Opção inválida!!!");
+
+                            break;
+
                     }
 
-                    //decrementa o valor da conta
-                    saldo -= saque;
+                    //Opção para o usuário continuar com operações ou não
+                    opcao = JOptionPane.showInputDialog(mensagem);
+                    
+                    //Condição para encerrar a operação
+                    if (opcao.equals("d") || opcao.equals("D")) {
 
-                    System.out.println("Saldo atual: " + saldo);
+                        System.exit(0);
 
-                    break;
-
-                case "c":
-                case "C":
-
-                    //Informa o valor do depósito
-                    deposito = Float.parseFloat("Informe o valor para saque: \n\n");
-
-                    //Não permite o depósito ser negativo 
-                    if (deposito < 0) {
-                        System.out.println("Informe um valor positivo para depósito!!!");
                     }
 
-                    //decrementa o valor da conta
-                    saldo += deposito;
-
-                    System.out.println("Saldo atual: " + saldo);
-
-                    break;
-
-                case "d":
-                case "D":
-
-                    System.exit(0);
-
-                    break;
-
-                default:
-
-                    System.out.println("Opção inválida!!!");
-
-                    break;
-
+                } while (opcao.equals("s") || opcao.equals("S"));
             }
 
-        } while (opcao != "");
+        }
 
         System.out.println("\n");
-
     }
 
 }

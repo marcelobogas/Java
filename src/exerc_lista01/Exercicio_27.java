@@ -20,30 +20,36 @@ public class Exercicio_27 {
     public void Executar_Programa_27() {
 
         String sexo = new String();
-        int idade1 = 0,
+        String mensagem = "Deseja continuar: ";
+        int fem = 0,
+                mas = 0,
+                cont = 0,
                 mediaIdade = 0,
-                fem = 0,
-                mas = 0;
-        String opcao2 = new String();
+                idade = 0;
+        String opcao = new String();
 
         do {
 
             //Armazena a opção informada pelo usuário
             sexo = JOptionPane.showInputDialog("Use [F] para sexo feminino \n"
                     + "Use [M] para sexo masculino \n\nQual o seu sexo: ");
-            idade1 = Integer.parseInt(JOptionPane.showInputDialog("Qual a sua idade: "));
+            idade = Integer.parseInt(JOptionPane.showInputDialog("Qual a sua idade: "));
 
-            if (sexo == "f" || sexo == "F") {
+            if (sexo.equals("f") || sexo.equals("F")) {
 
+                mediaIdade += idade;
                 fem++;
-                mediaIdade += idade1;
-                opcao2 = JOptionPane.showInputDialog("Deseja continuar?");
-            }
+                cont++;
 
-            if (sexo == "m" || sexo == "M") {
+            } else if (sexo.equals("m") || sexo.equals("M")) {
 
+                mediaIdade += idade;
                 mas++;
-                mediaIdade += idade1;
+                cont++;
+
+            } else {
+
+                System.out.println("Opção inválida!!!");
 
             }
 
@@ -51,15 +57,17 @@ public class Exercicio_27 {
             mediaIdade = fem + mas;
 
             //Opção para o usuário continuar ou sair do programa
-            opcao2 = JOptionPane.showInputDialog("Deseja continuar: ");
+            opcao = JOptionPane.showInputDialog(mensagem);
 
-        } while (opcao2 == "s" || opcao2 == "S");
+            if (opcao.equals("n") || opcao.equals("N")) {
 
-        System.out.println("Total feminino: " + fem + "\tTotal masculino: " + mas
-                + "\tMédia de idade: " + mediaIdade);
+                System.out.println("Total feminino: " + fem + "\tTotal masculino: " + mas
+                        + "\tMédia de idade: " + mediaIdade / cont);
+                System.out.println("\nFinalizado com sucesso!!!");
 
-        System.out.println("\n");
+            }
 
+        } while (opcao.equals("s") || opcao.equals("S"));
     }
 
 }

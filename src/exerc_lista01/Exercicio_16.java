@@ -27,7 +27,7 @@ public class Exercicio_16 {
         //Laço  para preencher o vetor
         for (int i = 0; i < 20; i++) {
             //preenche o vetor com números aleatórios
-            soma3 += r1.nextInt(100) + 1;
+            soma3 += r1.nextInt(101);
             cont2++;
 
             //Mostra o número preenchido
