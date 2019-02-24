@@ -13,7 +13,7 @@ public class Exerc_Lista01 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         int opcao = 0;
 
         do {
@@ -22,6 +22,7 @@ public class Exerc_Lista01 {
                     + "01 \t02 \t03 \t04 \t05 \t06 \t07 \t08 \t09 \t10 \n"
                     + "11 \t12 \t13 \t14 \t15 \t16 \t17 \t18 \t19 \t20 \n"
                     + "21 \t22 \t23 \t24 \t25 \t26 \t27 \t28 \t29 \t30 \n"
+                    + "31 \t32"
                     + "\nUse 99 para sair \n"));
 
             switch (opcao) {
@@ -270,6 +271,22 @@ public class Exerc_Lista01 {
                     Exercicio_30 exer_30;
                     exer_30 = new Exercicio_30();
                     exer_30.Executar_Programa_30();
+
+                    break;
+
+                case 31:
+
+                    Exercicio_31 exer_31;
+                    exer_31 = new Exercicio_31();
+                    exer_31.Executar_Programa_31();
+
+                    break;
+
+                case 32:
+
+                    Exercicio_32 exer_32;
+                    exer_32 = new Exercicio_32();
+                    exer_32.Executar_Programa_32();
 
                     break;
 

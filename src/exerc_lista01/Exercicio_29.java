@@ -17,7 +17,7 @@ public class Exercicio_29 {
         //Código do construtor
     }
 
-    public void Executar_Programa_29() {
+    public static void Executar_Programa_29() {
 
         int opcao = 0;
         String escolha = new String();
